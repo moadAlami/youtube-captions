@@ -33,14 +33,7 @@ if captions is not None:
             if not line.isspace():
                 word_list.append(line) 
 
-    search_list = list()
-    i = 0
-    while 1:
-        i += 1
-        word=input('Enter the word or sentence you want to look for:\n')
-        if word == '':
-            break
-        search_list.append(word)
+    search_list=input('Enter the words you want to look for separated by an underscore "_" (no spaces between words):\n').split('_')
 
     columns = ['Index', 'Time Stamp', 'Sentence']
 
