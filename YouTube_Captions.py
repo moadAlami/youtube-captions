@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from pytube import YouTube as YT
 
-url = input('Please enter the YouTube video link:\n\t')
+url = input('Please enter the YouTube video link:\n\n\t $ ')
 
 print('Getting video informations...\n')
 yt = YT(url)
@@ -16,7 +16,7 @@ title = yt.title.replace('\\', '-')
 
 
 
-print("Getting english captions for '{}'...".format(title))
+print("Getting english captions for '{}'...\n".format(title))
 captions = yt.captions.get_by_language_code('en')
 
 if captions is not None:
@@ -33,7 +33,7 @@ if captions is not None:
             if not line.isspace():
                 word_list.append(line) 
 
-    search_list=input('Enter the words you want to look for separated by an underscore "_" (no spaces between words):\n').split('_')
+    search_list=input('Enter the words you want to look for separated by an underscore "_" (no spaces between words):\n\n\t $ ').split('_')
 
     columns = ['Index', 'Time Stamp', 'Sentence']
 
@@ -44,9 +44,13 @@ if captions is not None:
         df[column] = df[column].str[:-2]
 
     for inedx, row in df.iterrows():
+        i = 0
         if re.compile('|'.join(search_list), re.IGNORECASE).search(row[1]):
             print('Match found on {}: "{}""'.format(row[0], row[1]))
-
+            i += 1    
+    if i == 0:
+        print('\nNo matches were found for {}'.format(search_list))
+    
     input('Click enter to exit')
 
 else:
