@@ -6,9 +6,9 @@ import pandas as pd
 import numpy as np
 from pytube import YouTube as YT
 
-url = input('Please enter the YouTube video link:\n\n\t $ ')
+url = input('Please enter the YouTube video link:\n\t $ ')
 
-print('Getting video informations...\n')
+print('\nGetting video informations...\n')
 yt = YT(url)
 
 title = yt.title.replace('/', '-')
@@ -42,13 +42,13 @@ if captions is not None:
 
     for column in columns[1:]:
         df[column] = df[column].str[:-2]
-
+        
+    matches = list()
     for inedx, row in df.iterrows():
-        i = 0
         if re.compile('|'.join(search_list), re.IGNORECASE).search(row[1]):
             print('Match found on {}: "{}""'.format(row[0], row[1]))
-            i += 1    
-    if i == 0:
+            matches.append(1)   
+    if len(matches) == 0:
         print('\nNo matches were found for {}'.format(search_list))
     
     input('Click enter to exit')
