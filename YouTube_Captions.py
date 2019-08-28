@@ -13,7 +13,7 @@ yt = YT(url)
 
 title = yt.title.replace('/', '-')
 title = yt.title.replace('\\', '-')
-
+title = yt.title.replace('|', '-')
 
 
 print("Getting english captions for '{}'...\n".format(title))
