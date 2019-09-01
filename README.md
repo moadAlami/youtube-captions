@@ -15,7 +15,3 @@ In some videos, if a word that's being searched matches with the person speaking
 ## Dependencies
 
 youtube-captions uses [pytube](https://github.com/moadAlami/ROI-Auto/blob/master/README.md), [pandas](https://pandas.pydata.org/) and [numpy](https://www.numpy.org/).
-
-## To do
-
-Make a loop where the script doesn't exit unless given an empty entry. Allows for looking through multiple videos without rerunning the script.
