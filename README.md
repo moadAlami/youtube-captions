@@ -2,7 +2,7 @@
 
 Looks for a list of words in a YouTube Video
 
-## Principle
+## How it works
 
 This Python script takes a YouTube video url as input, it then checks if that video has english captions available; if it is the case, it then prompts the user to input a list of words and checks if they are in the video. When a match is found, the script will output the timestamp and the sentence containing that word.
 
