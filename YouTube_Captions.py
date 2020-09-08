@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 print('Loading necessary modules...\n')
 import re
 import pandas as pd
